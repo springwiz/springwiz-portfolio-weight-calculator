@@ -1,6 +1,8 @@
 package com.springwiz.portfolio.model;
 import java.util.*;
+import java.util.logging.Logger;
 
+import com.springwiz.portfolio.input.FundParser;
 import com.springwiz.portfolio.input.InputHandler;
 import com.springwiz.portfolio.output.OutputHandler;
 
@@ -8,7 +10,6 @@ import static java.util.stream.Collectors.toList;
 
 import java.text.DecimalFormat;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FundGraph.
  */
@@ -16,6 +17,9 @@ public class FundGraph {
     
     /** The adj list. */
     private Map<Fund, Set<Fund>> adjList = new HashMap<>();
+    
+    /** The Constant log. */
+    private static final Logger log = Logger.getLogger(FundGraph.class.getName());
     
     /** The profit. */
     private long profit = 0;
@@ -128,6 +132,7 @@ public class FundGraph {
                                     (double) f.getFundValue() / parentSum));
                 });
         profit = marketCap - parser.getMarketValue();
+        log.info("Calculated profit:"+ profit);
         out.getOutputStream().println(
                 new DecimalFormat(".## %")
                 .format((double)profit/parser.getMarketValue())

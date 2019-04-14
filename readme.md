@@ -31,7 +31,7 @@ C,H,1000
 
 #Running the Solution
 The Solution can be run as:
-java -jar springwiz-portfolio-weight-calculator-0.0.1-SNAPSHOT-jar-with-dependencies.jar ./data/imput.txt 9000
+java -jar ./target/springwiz-portfolio-weight-calculator-0.0.1-SNAPSHOT-jar-with-dependencies.jar ./data/input.txt 9000
 
 #Output
 A,D,0.167

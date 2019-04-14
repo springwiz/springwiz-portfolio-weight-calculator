@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,6 +22,9 @@ public class FundParser implements InputHandler {
     
     /** The market value. */
     private Long marketValue;
+    
+    /** The Constant log. */
+    private static final Logger log = Logger.getLogger(FundParser.class.getName());
     
     /**
      * Instantiates a new fund parser.
@@ -40,6 +44,7 @@ public class FundParser implements InputHandler {
     public List<Edge> parse(String fileName) throws IOException {
 
         List<String> content = read(fileName);
+        log.info("Lines read:"+ content.size());
         Map<String, Long> fundMap = new HashMap<>();
         content.forEach(p -> {
             String[] tokens = p.split(",");
@@ -49,6 +54,7 @@ public class FundParser implements InputHandler {
                 .stream()
                 .mapToLong(Long::valueOf)
                 .sum();
+        log.info("Calculated marketValue:"+ marketValue);
         return content.stream()
                 .map(p -> p.split(","))
                 .map(p ->

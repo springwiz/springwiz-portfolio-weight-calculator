@@ -41,7 +41,7 @@
                 		<archive>
                 			<manifest>
                     			<mainClass>
-                        			com.springwiz.portfolio.Manager
+                        			com.springwiz.portfolio.manager.PortfolioManager
                     			</mainClass>
                 			</manifest>
                 		</archive>

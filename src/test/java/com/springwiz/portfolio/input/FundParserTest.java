@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.springwiz.porfolio.input;
+package com.springwiz.portfolio.input;
 
 import static org.junit.Assert.*;
 
